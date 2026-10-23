@@ -45,3 +45,7 @@ Vitrine: https://ricardobsanti.github.io/bruna-borges-elora/
 Portal: https://ricardobsanti.github.io/bruna-borges-elora/portal/
 
 Diagnóstico: https://ricardobsanti.github.io/bruna-borges-elora/diagnostico/
+
+## Login demonstrativo
+
+O portal é acessado pela vitrine, com telas de entrada, recuperação de senha, acesso inicial e saída. E-mail: visitante@elora.demo. Senha: elora. O login é apenas uma simulação autorizada para apresentação. Não protege conteúdo nem autentica alunas. Não use senhas pessoais. A recuperação não envia e-mails. A versão de produção exige autenticação e autorização no servidor.
