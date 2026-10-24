@@ -1,0 +1,5 @@
+'use strict';
+if(document.getElementById('quiz')){
+ const originalResult=renderResult;
+ renderResult=function(){originalResult();const {total}=resultData(),mentoring=total>=70;const note=document.createElement('section');note.className='triage-recommendation';note.innerHTML=`<span class="eyebrow">UM CAMINHO PARA O SEU MOMENTO</span><h3>${mentoring?'Aprofundar com a mentoria individual.':'Construir a base dentro da Elora.'}</h3><p>${mentoring?'Suas respostas descrevem uma base mais estruturada. Uma conversa individual pode ajudar a aprofundar decisões específicas.':'Suas respostas sugerem trabalhar clareza e consistência na prática. A jornada da Elora oferece um espaço para organizar esse próximo passo.'}</p><p class="notice">Sugestão exploratória baseada neste diagnóstico demonstrativo. A indicação definitiva de produto e os critérios serão validados pela Bruna. Dentro da Elora há outro formulário, dedicado aos seus objetivos de seis meses.</p>`;document.querySelector('.result-offers').before(note)};
+}

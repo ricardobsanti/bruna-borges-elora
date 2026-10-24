@@ -2,6 +2,18 @@
 
 Proposta navegável para apresentação à cliente. HTML, CSS e JavaScript, sem etapa de build.
 
+## Jornada Elora — atualização de 24/10/2026
+
+A Elora agora tem cinco áreas: **Visão geral**, **Meu diagnóstico e plano**, **Meu espaço de trabalho**, **Aulas e ferramentas** e **Comunidade**.
+
+O diagnóstico da vitrine e o questionário de objetivos do portal são formulários diferentes. Dentro da Elora estão as 12 perguntas do documento fornecido pela cliente, em quatro blocos e com as opções de múltipla escolha originais. O plano de seis meses muda conforme o foco sugerido pelas respostas. Consulte [os critérios propostos](CRITERIOS.md).
+
+Cada mês reúne quatro tarefas, três exercícios, documentos locais, insights e anotações. O progresso do plano considera 42 etapas. As aulas mantêm progresso separado. A biblioteca inclui ideias de conteúdo que podem ser salvas e levadas aos insights do mês. A comunidade permite experimentar publicações, comentários, curtidas e categorias; tudo fica apenas neste dispositivo.
+
+Arquivos são guardados no IndexedDB; respostas e notas, no localStorage. O login demonstrativo usa sessionStorage. Não são enviados a um servidor de alunas. As gravações oficiais ainda serão definidas pela Bruna; as aulas em texto continuam identificadas como exemplos.
+
+Verificação dos critérios: `node tests/plan.test.mjs`. Confere roteiros diferentes para vendas e conteúdo, seis meses, respostas obrigatórias, neutralidade do faturamento, capacidade de execução e separação dos registros de cada foco.
+
 ## Abrir localmente
 
 Na pasta deste arquivo, execute `node preview.mjs` e abra `http://127.0.0.1:4175/bruna-borges-elora/`.
