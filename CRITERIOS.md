@@ -1,41 +1,31 @@
-# Critérios propostos para o plano da Elora
+# Critérios do diagnóstico Elora — versão 1.0
 
-Estes pesos são uma proposta de automação para validação da Bruna. Não são instrumento estatístico, diagnóstico profissional validado ou previsão de resultados.
+Implementação da especificação recebida em 26/10/2026. A vitrine mantém um diagnóstico exploratório de nove perguntas; o formulário de objetivos da Elora tem 12 perguntas e abre antes da primeira visita ao plano.
 
-## Duas etapas diferentes
+## Seis trilhas na plataforma
 
-1. **Vitrine:** diagnóstico exploratório do negócio, para sugerir um próximo caminho de formação ou mentoria. As nove perguntas continuam sendo exemplos da primeira proposta, aguardando o formulário definitivo desta etapa.
-2. **Portal:** questionário de objetivos da Elora, com as 12 perguntas e alternativas do documento fornecido pela cliente. Mantém quatro blocos e permite múltipla seleção onde o documento indica.
+Cinco trilhas recebem pontos: Posicionamento, Comunicação e conteúdo, Diferencial e experiência, Comercial e vendas, Estrutura e expansão. Gestão e indicadores acompanha a jornada como apoio fixo, sem pontos. Esta conciliação reúne as trilhas dos dois documentos sem inventar uma sexta regra de pontuação.
 
-## Priorização dentro da Elora
+## Pontuação
 
-| Sinal | Peso proposto | Aplicação |
-| --- | --- | --- |
-| Dificuldade declarada | +4 | Área correspondente: atração, vendas, posicionamento, conteúdo ou oferta |
-| Objetivo escolhido | +2 | Reforça a direção desejada, sem presumir um problema |
-| Resposta específica sobre posicionamento, conteúdo ou vendas | 0 a +3 | Conforme a necessidade de estruturação declarada |
-| Recurso ainda ausente | +1 | Oferta, posicionamento, conteúdo ou processo comercial |
-| Ausência de fonte consistente de clientes | +2 | Atração |
-| Faturamento, segmento e tempo de negócio | Sem pontos | Contextualizam as respostas, sem classificar pessoas ou prometer retorno |
-| Tempo semanal disponível | Ajuste de orientação | Menos de duas horas gera orientação de microtarefas |
+- Cada objetivo selecionado na primeira pergunta soma +2 à trilha associada.
+- Dificuldades atuais e perguntas específicas de posicionamento, comunicação e vendas somam +2 a cada trilha associada. Uma resposta pode pontuar duas trilhas.
+- Competências desenvolvidas somam zero, sem subtrair pontos.
+- Resultado desejado, segmento, faturamento, tempo de negócio, aquisição de clientes, recursos e horas disponíveis não alteram a classificação.
+- Todas as seleções válidas somam, sem duplicações.
 
-O foco principal é a maior soma. Em empate, a ordem determinística é vendas, conteúdo, posicionamento, oferta, atração e gestão. Essa regra pode ser substituída por uma pergunta de desempate na versão final.
+A trilha principal é a maior pontuação. Até duas outras trilhas com pontuação positiva são complementares. O desempate prioriza o subtotal de dificuldades atuais; persistindo empate, usa Posicionamento, Comunicação e conteúdo, Diferencial e experiência, Comercial e vendas, Estrutura e expansão. Desempate e máximo de complementares seguem a proposta configurável do Word, ainda para validação da Bruna.
 
-O plano mostra os pontos de prioridade e explica o cálculo. A participante pode explorar outro foco sem apagar os registros da trilha anterior. As barras expressam prioridade relativa, e não qualidade do negócio ou probabilidade de sucesso.
+## Agenda e carga
 
-## Roteiros
+São seis ciclos de 30 dias, cada um com quatro semanas de aplicação (dias 1–28). Dias 29–30 ficam para revisão e ajustes do ciclo. Há 24 semanas com três modelos de atividade cada. Os temas seguem planos predefinidos das trilhas; os enunciados oficiais serão fornecidos pela Bruna.
 
-Existem roteiros de seis meses para vendas, conteúdo, posicionamento, oferta, atração e organização. Cada mês contém quatro tarefas e três exercícios. Os temas, as tarefas e os enunciados mudam conforme o foco. Os roteiros são sugestões editoriais demonstrativas e precisam de aprovação da mentora.
+Carga demonstrativa configurável: menos de 2 horas/semana gera um essencial e dois opcionais; de 2 a 4 horas gera dois essenciais e um opcional; a partir de 5 horas gera três essenciais. O tempo sugerido por atividade varia entre 10 e 50 minutos. Estes quantitativos são uma proposta editorial, não uma regra confirmada da metodologia.
 
-Exemplos testados:
+O progresso considera somente exercícios essenciais: 24, 48 ou 72 atividades, conforme a capacidade informada. Revisão semanal, aulas, notas, questionário e dois modelos adicionais de apoio não alteram esse percentual. Aplicação prática pode ser concluída sem texto; resposta escrita exige preenchimento. Rascunhos e conclusões ficam associados à versão, trilhas selecionadas, semana e atividade.
 
-- Dificuldade em converter + objetivo de vendas: oferta, conversa comercial, prospecção, experiência e revisão.
-- Dificuldade em criar conteúdo: mensagem, pilares, rotina de criação, conteúdo comercial e revisão.
+## Dados e limites
 
-## Progresso
+Documentos e fotos ficam no IndexedDB; respostas, notas e interações no localStorage. Registros antigos são preservados. Login, primeiro acesso, recuperação, compra, cadastro de interesse e comunidade são demonstrativos. Nenhuma senha é armazenada, nenhum pagamento ou envio de contato ocorre. Não existe autenticação real ou acesso entre participantes.
 
-O progresso do plano considera 42 etapas: 24 tarefas e 18 exercícios. O questionário completo conclui a primeira tarefa do mês 1. Aulas têm progresso separado e não alteram esse denominador. O mês atual é selecionável. Não há liberação fictícia de conteúdo nem datas de encontros inventadas.
-
-## Limites desta versão
-
-Login, recuperação de senha, comunidade e arquivos são demonstrativos. Dados e arquivos ficam no navegador. Não há servidor de alunas, interações entre pessoas ou envio de dados de negócio. Para produção, integrar autenticação, autorização, armazenamento protegido e validação das regras com a Bruna.
+Verificação: `node tests/plan.test.mjs` cobre todos os mapeamentos de pontos, múltipla seleção, neutralidade do contexto, desempate, complementares, semanas, capacidade e isolamento de registros.

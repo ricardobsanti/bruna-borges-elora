@@ -8,11 +8,17 @@
  let mode='login';
  const session=()=>{try{return sessionStorage.getItem('elora-demo-session')==='active'}catch{return false}};
  const setSession=value=>{try{value?sessionStorage.setItem('elora-demo-session','active'):sessionStorage.removeItem('elora-demo-session')}catch{}};
- const showPortal=()=>{gate.hidden=true;portal.hidden=false;document.body.classList.remove('login-body');scrollTo(0,0)};
+ const showPortal=()=>{gate.hidden=true;portal.hidden=false;document.body.classList.remove('login-body');dispatchEvent(new Event('elora:entered'));scrollTo(0,0)};
  function showGate(next='login'){
   mode=next;gate.hidden=false;portal.hidden=true;document.body.classList.add('login-body');
   gate.innerHTML=`<main class="login-layout"><section class="login-art"><a class="login-back" href="${base}">← Voltar para Bruna Borges</a><div class="login-art-inner"><span class="eyebrow">UM NOVO CAPÍTULO, TODOS OS DIAS.</span><h1>O próximo passo<br>é <em>seu.</em></h1><p>Seu espaço para aprender, aplicar e construir um negócio com a sua assinatura.</p></div><div class="login-orbit" aria-hidden="true">∞</div><span class="login-art-footer">ELORA POR BRUNA BORGES</span></section><section class="login-form-side"><img src="${base}assets/elora.svg" alt="Elora" class="login-logo"><span class="eyebrow">ÁREA EXCLUSIVA PARA ALUNAS</span><div id="access-content"></div><small class="login-disclaimer">PROTÓTIPO NAVEGÁVEL · Sem autenticação real. Não use sua senha pessoal. Aulas e dados desta versão são demonstrativos.</small></section></main>`;
   const content=document.getElementById('access-content');
+  if(mode==='first'){
+   let purchase={};try{purchase=JSON.parse(localStorage.getItem('elora-demo-purchase'))||{}}catch{}
+   content.innerHTML=`<h2>Seu primeiro<br><em>passo na Elora.</em></h2><p class="login-intro">Na versão definitiva, seu login será o e-mail usado na compra. Aqui você pode experimentar a criação do acesso.</p><form id="first-access"><label class="form-field">E-mail da compra<input id="purchase-email" name="email" type="email" required autocomplete="off"></label><label class="form-field">Crie uma senha de demonstração<input name="password" type="password" required minlength="6" autocomplete="off" placeholder="Use uma senha fictícia, com 6 caracteres"></label><label class="form-field">Confirme a senha<input name="confirm" type="password" required minlength="6" autocomplete="off"></label><p id="first-error" class="login-error" role="alert"></p><p class="notice">Esta simulação não cria uma conta nem armazena sua senha. Para novos logins, use as credenciais de apresentação.</p><button class="button dark login-submit">Criar acesso demonstrativo <span>→</span></button></form><button class="text-link" id="back-login">Já tenho acesso · entrar →</button>`;
+   document.getElementById('purchase-email').value=purchase.email||'visitante@elora.demo';
+   document.getElementById('first-access').onsubmit=e=>{e.preventDefault();const data=new FormData(e.target);if(data.get('password')!==data.get('confirm')){document.getElementById('first-error').textContent='As senhas precisam ser iguais.';return}setSession(true);history.replaceState(null,'',location.pathname);showPortal()};document.getElementById('back-login').onclick=()=>showGate();
+  }
   if(mode==='login'){
    content.innerHTML=`<h2>Bom ter você<br><em>de volta.</em></h2><p class="login-intro">Entre para continuar a sua jornada.</p><form id="demo-login"><label class="form-field">Seu e-mail<input type="email" name="email" required autocomplete="off" value="visitante@elora.demo"></label><label class="form-field">Sua senha<div class="password-wrap"><input type="password" id="demo-password" name="password" required autocomplete="off" value="elora"><button type="button" id="show-password" aria-label="Mostrar senha">Mostrar</button></div></label><button class="login-forgot" type="button" id="forgot">Esqueci minha senha</button><p class="login-error" id="login-error" role="alert"></p><button class="button dark login-submit" type="submit">Entrar na Elora <span>↗</span></button></form><div class="demo-credentials"><span class="eyebrow">ACESSO PARA APRESENTAÇÃO</span><p>E-mail: <strong>visitante@elora.demo</strong><br>Senha: <strong>elora</strong></p></div><button class="text-link" id="request-access">Ainda não tem acesso? Conheça os caminhos <span>↗</span></button>`;
    document.getElementById('demo-login').onsubmit=e=>{e.preventDefault();const form=new FormData(e.target);if(form.get('email').trim().toLowerCase()!=='visitante@elora.demo'||form.get('password')!=='elora'){document.getElementById('login-error').textContent='Para explorar o protótipo, use o e-mail e a senha demonstrativos abaixo.';return}setSession(true);showPortal()};
@@ -29,5 +35,5 @@
   scrollTo(0,0);
  }
  const logout=document.createElement('button');logout.className='logout-button';logout.textContent='Sair ↗';logout.onclick=()=>{setSession(false);showGate()};document.querySelector('.profile').append(logout);
- if(session())showPortal();else showGate();
+ if(new URLSearchParams(location.search).has('primeiro-acesso'))showGate('first');else if(session())showPortal();else showGate();
 })();

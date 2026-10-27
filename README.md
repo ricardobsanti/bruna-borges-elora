@@ -2,35 +2,27 @@
 
 Proposta navegável para apresentação à cliente. HTML, CSS e JavaScript, sem etapa de build.
 
-## Jornada Elora — atualização de 24/10/2026
+## Jornada Elora — atualização de 26/10/2026
 
-A Elora agora tem cinco áreas: **Visão geral**, **Meu diagnóstico e plano**, **Meu espaço de trabalho**, **Aulas e ferramentas** e **Comunidade**.
+Cinco áreas de navegação: Visão geral, Meu diagnóstico e plano, Meu espaço de trabalho, Aulas e ferramentas e Comunidade. O formulário inicial tem 12 perguntas. A plataforma reúne seis trilhas, com cinco pontuadas conforme o Word e Gestão e indicadores como apoio fixo. Consulte [os critérios](CRITERIOS.md).
 
-O diagnóstico da vitrine e o questionário de objetivos do portal são formulários diferentes. Dentro da Elora estão as 12 perguntas do documento fornecido pela cliente, em quatro blocos e com as opções de múltipla escolha originais. O plano de seis meses muda conforme o foco sugerido pelas respostas. Consulte [os critérios propostos](CRITERIOS.md).
+O plano usa seis ciclos de 30 dias e 24 semanas de atividades. Documentos, múltiplos blocos de insights e anotações são organizados por semana. Revisão e aprendizados não contam como exercício. Ideias podem ser favoritados; publicações locais aceitam foto. Conteúdo e atividades oficiais serão fornecidos pela Bruna.
 
-Cada mês reúne quatro tarefas, três exercícios, documentos locais, insights e anotações. O progresso do plano considera 42 etapas. As aulas mantêm progresso separado. A biblioteca inclui ideias de conteúdo que podem ser salvas e levadas aos insights do mês. A comunidade permite experimentar publicações, comentários, curtidas e categorias; tudo fica apenas neste dispositivo.
-
-Arquivos são guardados no IndexedDB; respostas e notas, no localStorage. O login demonstrativo usa sessionStorage. Não são enviados a um servidor de alunas. As gravações oficiais ainda serão definidas pela Bruna; as aulas em texto continuam identificadas como exemplos.
-
-Verificação dos critérios: `node tests/plan.test.mjs`. Confere roteiros diferentes para vendas e conteúdo, seis meses, respostas obrigatórias, neutralidade do faturamento, capacidade de execução e separação dos registros de cada foco.
+A vitrine leva às apresentações da mentoria e da Elora. O cadastro de interesse contém nome, WhatsApp, cidade, estado, nicho, dificuldade e objetivo. Compra demonstrativa leva à tela de primeiro acesso com o e-mail da compra. Sem cobrança, envio de contato ou autenticação real; não use senha pessoal.
 
 ## Abrir localmente
 
-Na pasta deste arquivo, execute `node preview.mjs` e abra `http://127.0.0.1:4175/bruna-borges-elora/`.
+Execute `node preview.mjs` e abra `http://127.0.0.1:4175/bruna-borges-elora/`. A variável PORT permite escolher outra porta.
 
 - `/`: vitrine Bruna Borges.
-- `/diagnostico/`: nove perguntas, resultado por eixo, plano inicial e relatório PDF.
-- `/portal/`: portal Elora, três trilhas e nove aulas editoriais demonstrativas, exercícios, caderno, biblioteca PDF e preparação para mentoria.
+- `/diagnostico/`: diagnóstico exploratório, três atividades e relatório PDF.
+- `/mentoria/`: apresentação e cadastro de interesse demonstrativo.
+- `/elora/`: apresentação da plataforma e compra demonstrativa.
+- `/portal/`: login e jornada da aluna.
 
-## O que funciona
+Login: `visitante@elora.demo` / `elora`. Dados locais no navegador (localStorage/IndexedDB); login em sessionStorage. Não existe servidor de alunas, pagamento, mensagens ou agenda real.
 
-Navegação, diagnóstico, PDF local, filtros e busca das trilhas, leitura das aulas, conclusão das aulas, progresso, exercícios, anotações, exportação do caderno e rascunho de intenção de mentoria. Os dados ficam no localStorage do navegador, separados pelo prefixo `elora-`. Em Privacidade, na vitrine, é possível apagá-los.
-
-## Escopo da demonstração
-
-Não há autenticação, cadastro, servidor de dados, cobrança, envio de leads ou agendamento real. Formulários identificam o armazenamento local. Conteúdo educacional e critérios de pontuação são exemplos para validação com a cliente. Não foram criados depoimentos, números de resultados ou credenciais profissionais.
-
-Para operação comercial: aprovar textos e diagnóstico, adicionar foto e biografia autorizadas da Bruna, aulas oficiais, preços, políticas, autenticação, banco de dados, armazenamento de mídia, pagamentos, agenda e canal de contato.
+Verificação automatizada: `node tests/plan.test.mjs`. Verificação manual no navegador cobre formulário, plano, semana, notas e navegação comercial. Antes da operação comercial, integrar autenticação, autorização, armazenamento seguro, pagamentos, atendimento e conteúdo aprovado.
 
 ## Direção visual
 
