@@ -2,13 +2,15 @@
 
 Proposta navegável para apresentação à cliente. HTML, CSS e JavaScript, sem etapa de build.
 
-## Jornada Elora — atualização de 26/10/2026
+## Jornada Elora — atualização de 28/10/2026
 
-Cinco áreas de navegação: Visão geral, Meu diagnóstico e plano, Meu espaço de trabalho, Aulas e ferramentas e Comunidade. O formulário inicial tem 12 perguntas. A plataforma reúne seis trilhas, com cinco pontuadas conforme o Word e Gestão e indicadores como apoio fixo. Consulte [os critérios](CRITERIOS.md).
+Cinco áreas de navegação: Visão geral, Meu diagnóstico e plano, Meu espaço de trabalho, Aulas e ferramentas e Comunidade. O formulário inicial tem 12 perguntas. O novo percurso essencial tem 96 exercícios em quatro trilhas: Posicionamento, Comunicação e conteúdo, Diferencial e experiência, Comercial e vendas. O diagnóstico define sua ordem, sem retirar exercícios. Gestão e indicadores e Estrutura e expansão são apoios por ciclo. Consulte [os critérios](CRITERIOS.md).
 
-O plano usa seis ciclos de 30 dias e 24 semanas de atividades. Documentos, múltiplos blocos de insights e anotações são organizados por semana. Revisão e aprendizados não contam como exercício. Ideias podem ser favoritados; publicações locais aceitam foto. Conteúdo e atividades oficiais serão fornecidos pela Bruna.
+São 24 semanas em seis ciclos de 30 dias, com quatro essenciais por semana e revisões nos dias 29–30. Reflexões, aplicações práticas e híbridas seguem o DOCX da Bruna. Doze apoios ficam fora do progresso; os enunciados desses apoios ainda são modelos provisórios. Respostas anteriores são preservadas e a nova ordem do diagnóstico não muda os IDs dos exercícios oficiais.
 
-A vitrine leva às apresentações da mentoria e da Elora. O cadastro de interesse contém nome, WhatsApp, cidade, estado, nicho, dificuldade e objetivo. Compra demonstrativa leva à tela de primeiro acesso com o e-mail da compra. Sem cobrança, envio de contato ou autenticação real; não use senha pessoal.
+A biblioteca reúne os 13 PDFs fornecidos, com busca, filtros, favoritos, download e consulta das páginas. Os PDFs originais permanecem intactos. Documentos, insights e notas continuam separados por semana; fotos e comunidade são locais. Gravações oficiais das aulas ainda serão fornecidas pela Bruna.
+
+As apresentações da mentoria e da Elora mantêm cadastro de interesse e compra/primeiro acesso demonstrativos. Sem cobrança, envio de contato ou autenticação real; não use senha pessoal.
 
 ## Abrir localmente
 
