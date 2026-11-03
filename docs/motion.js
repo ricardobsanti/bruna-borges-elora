@@ -5,12 +5,13 @@
  if(reduced.matches)return;
  document.body.classList.add('enhanced-motion');
  const hero=document.querySelector('.hero-art');
- if(hero&&fine.matches){
+ if(hero&&fine.matches&&!hero.classList.contains('hero-portrait-art')){
   const cursor=document.createElement('div');cursor.className='art-cursor';cursor.innerHTML='<span>EXPLORE<br>SEU POTENCIAL</span><b>↗</b>';hero.append(cursor);
   const move=e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hero.style.setProperty('--mx',x);hero.style.setProperty('--my',y);hero.style.setProperty('--light-x',`${(x+.5)*100}%`);hero.style.setProperty('--light-y',`${(y+.5)*100}%`);cursor.style.left=(e.clientX-r.left)+'px';cursor.style.top=(e.clientY-r.top)+'px'};
   hero.addEventListener('pointermove',move,{passive:true});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0)});
   hero.setAttribute('title','Mova o cursor para explorar a composição');
  }
+ if(hero?.classList.contains('hero-portrait-art')&&fine.matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)/r.width-.5);hero.style.setProperty('--my',(e.clientY-r.top)/r.height-.5)},{passive:true});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0)})}
  const shineTargets=document.querySelectorAll('.path-row,.course-card,.continue-card,.elora-preview,.panel');
  shineTargets.forEach(el=>{el.addEventListener('pointermove',e=>{if(!fine.matches)return;const r=el.getBoundingClientRect();el.style.setProperty('--hover-x',`${e.clientX-r.left}px`);el.style.setProperty('--hover-y',`${e.clientY-r.top}px`);if(el.matches('.elora-preview')){el.style.setProperty('--tilt-x',`${-(e.clientY-r.top-r.height/2)/45}deg`);el.style.setProperty('--tilt-y',`${(e.clientX-r.left-r.width/2)/45}deg`)}},{passive:true});el.addEventListener('pointerleave',()=>{el.style.setProperty('--tilt-x','0deg');el.style.setProperty('--tilt-y','0deg')})});
  if(fine.matches){document.querySelectorAll('.hero-actions .button,.final-cta .button,.elora-left .button').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.translate=`${(e.clientX-r.left-r.width/2)*.08}px ${(e.clientY-r.top-r.height/2)*.1}px`});el.addEventListener('pointerleave',()=>el.style.translate='0 0')})}

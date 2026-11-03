@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const state={'community-posts':[{id:'mine',author:'Você',text:'Publicação',imageId:'photo-1'},{id:'other',author:'Outra pessoa',text:'Outra publicação'}],'community-comments':{mine:[{author:'Você',text:'Comentário antigo'},{id:'someone',author:'Outra pessoa',text:'Outro comentário'}]}};
+const ctx=vm.createContext({window:{},crypto:{randomUUID:()=> 'migrated-id'},read:(key,fallback)=>structuredClone(state[key]??fallback),save:(key,value)=>{state[key]=structuredClone(value);return true}});
+vm.runInContext(fs.readFileSync(new URL('../docs/community-actions.js',import.meta.url),'utf8'),ctx);
+const C=ctx.window.EloraCommunity;C.ensureIds();assert.equal(state['community-comments'].mine[0].id,'migrated-id');
+assert.equal(C.remove('post','other'),false,'A participant cannot delete another author’s record');
+assert.equal(C.remove('comment','someone','mine'),false);
+assert.equal(C.remove('comment','migrated-id','mine'),true);assert.equal(C.deletedItems().length,1);assert.equal(state['community-comments'].mine[1].text,'Outro comentário');
+assert.equal(C.restore('comment','migrated-id','mine'),true);assert.equal(C.deletedItems().length,0);
+assert.equal(C.remove('post','mine'),true);assert.equal(state['community-posts'][0].imageId,'photo-1','Deleted posts preserve attachments for restoration');
+assert.equal(C.restore('post','mine'),true);assert.equal(state['community-posts'][0].text,'Publicação');
+assert.equal(C.remove('post','missing'),false);
+console.log('Passed: own comments and posts can be removed and restored; old comments retain content; other authors and photo attachments are preserved.');
