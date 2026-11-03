@@ -12,6 +12,12 @@ A biblioteca reúne os 13 PDFs fornecidos, com busca, filtros, favoritos, downlo
 
 As apresentações da mentoria e da Elora mantêm cadastro de interesse e compra/primeiro acesso demonstrativos. Sem cobrança, envio de contato ou autenticação real; não use senha pessoal.
 
+## Ideias de conteúdo — atualização de 03/11/2026
+
+A biblioteca usa as 24 ideias do documento Elora_Biblioteca_24_Ideias_de_Conteudo.docx: Autoridade (5), Identificação (5), Desejo (5), Conexão (5) e Conversão (4). Cada ideia mostra abertura, objetivo, roteiro completo, CTA e adaptação. Os formatos individuais foram preservados: 7 carrosséis, 7 Reels, 5 estáticos e 5 Stories; o resumo do documento menciona seis de cada, mas diverge dos cards.
+
+Filtros por intenção e formato, busca sem acentos e favoritos locais. Exemplos favoritados da versão anterior são preservados separadamente. As ideias não são copiadas aos insights. Verificação: `node tests/ideas.test.mjs`, além dos testes de plano e comunidade.
+
 ## Abrir localmente
 
 Execute `node preview.mjs` e abra `http://127.0.0.1:4175/bruna-borges-elora/`. A variável PORT permite escolher outra porta.
